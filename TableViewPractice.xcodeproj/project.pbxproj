@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B534F7B2B4940060097A6A8 /* ChattingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B534F7A2B4940060097A6A8 /* ChattingTableViewController.swift */; };
+		2B534F7D2B4940110097A6A8 /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B534F7C2B4940110097A6A8 /* ChattingTableViewCell.swift */; };
 		2BE593932B4809300007A7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593922B4809300007A7E2 /* AppDelegate.swift */; };
 		2BE593952B4809300007A7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593942B4809300007A7E2 /* SceneDelegate.swift */; };
 		2BE593972B4809300007A7E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593962B4809300007A7E2 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B534F7A2B4940060097A6A8 /* ChattingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewController.swift; sourceTree = "<group>"; };
+		2B534F7C2B4940110097A6A8 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
 		2BE5938F2B4809300007A7E2 /* TableViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE593922B4809300007A7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BE593942B4809300007A7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				2BE593962B4809300007A7E2 /* ViewController.swift */,
 				2BE593AA2B48107E0007A7E2 /* SettingTableViewController.swift */,
 				2BE593982B4809300007A7E2 /* Main.storyboard */,
+				2B534F7A2B4940060097A6A8 /* ChattingTableViewController.swift */,
+				2B534F7C2B4940110097A6A8 /* ChattingTableViewCell.swift */,
 				2BE593AE2B481B1B0007A7E2 /* ShoppingTableViewCell.swift */,
 				2BE593B02B481B2B0007A7E2 /* ShoppingTableViewController.swift */,
 				2BE5939B2B4809310007A7E2 /* Assets.xcassets */,
@@ -149,6 +155,8 @@
 			files = (
 				2BE593AF2B481B1B0007A7E2 /* ShoppingTableViewCell.swift in Sources */,
 				2BE593B12B481B2B0007A7E2 /* ShoppingTableViewController.swift in Sources */,
+				2B534F7B2B4940060097A6A8 /* ChattingTableViewController.swift in Sources */,
+				2B534F7D2B4940110097A6A8 /* ChattingTableViewCell.swift in Sources */,
 				2BE593AB2B48107E0007A7E2 /* SettingTableViewController.swift in Sources */,
 				2BE593972B4809300007A7E2 /* ViewController.swift in Sources */,
 				2BE593932B4809300007A7E2 /* AppDelegate.swift in Sources */,
@@ -304,6 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3BH6G5765B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TableViewPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -335,6 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3BH6G5765B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TableViewPractice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

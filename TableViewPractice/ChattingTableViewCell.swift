@@ -9,15 +9,17 @@ import UIKit
 
 class ChattingTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet var profileImageView: UIImageView!
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var personnelLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    @IBOutlet var muteImageView: UIImageView!
+    
+    @IBOutlet var pinImageView: UIImageView!
+    
+    @IBOutlet var timeLabel: UILabel!
+    
+    @IBOutlet var newMessageCountLabel: UILabel!
 }

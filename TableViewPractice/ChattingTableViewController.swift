@@ -1,89 +1,60 @@
-//
-//  ChattingTableViewController.swift
-//  TableViewPractice
-//
-//  Created by 최서경 on 1/6/24.
-//
-
 import UIKit
 
 class ChattingTableViewController: UITableViewController {
-
+    
+    var nameArray = ["최서경", "Jack", "Hue", "Ded", "Bran", "이지원", "이현민", "황한샘"]
+    var profileImageArray = [UIImage(named: "부케")!, UIImage(named: "쭈니")!, UIImage(named: "늑태")!, UIImage(named: "아폴로")!, UIImage(named: "kk")!, UIImage(named: "사이다"), UIImage(named: "유네찌"), UIImage(named: "실바나")]
+    var messageArray = ["안녕", "반가워", "뭐 해?", "밥 먹었어?", "뭐 먹을래?", "주말에 만날래?", "일어나 코딩홰야지", "ㅠㅠ"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return nameArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChattingTableViewCell", for: indexPath) as! ChattingTableViewCell
+        
 
-        // Configure the cell...
-
+        for count in 0 ... nameArray.count - 1 {
+            if count == indexPath.row {
+                cell.nameLabel.text = nameArray[count]
+                cell.nameLabel.font = .systemFont(ofSize: 15)
+                
+                cell.profileImageView.image = profileImageArray[count]
+                cell.profileImageView.contentMode = .scaleAspectFill
+                cell.profileImageView.layer.cornerRadius = 20
+                cell.profileImageView.layer.borderWidth = 1
+                cell.profileImageView.layer.borderColor = UIColor.systemGray5.cgColor
+                
+                cell.messageLabel.text = messageArray[count]
+                cell.messageLabel.font = .systemFont(ofSize: 13)
+                cell.messageLabel.textColor = .gray
+                cell.messageLabel.numberOfLines = 2
+                
+                cell.timeLabel.text = "12:00"
+                cell.timeLabel.font = .systemFont(ofSize: 14)
+                cell.timeLabel.textColor = .gray
+                
+                cell.newMessageCountLabel.text = ("\(Int.random(in: 0...10))")
+                cell.newMessageCountLabel.font = .systemFont(ofSize: 12)
+                cell.newMessageCountLabel.textColor = .white
+                cell.newMessageCountLabel.backgroundColor = .red
+                cell.newMessageCountLabel.layer.cornerRadius = 15
+                cell.newMessageCountLabel.clipsToBounds = true
+                cell.newMessageCountLabel.textAlignment = .center
+                
+            }
+        }
+        
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
