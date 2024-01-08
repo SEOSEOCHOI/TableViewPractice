@@ -7,29 +7,35 @@
 
 import UIKit
 
+struct Shopping {
+    let todo: String
+    var check: Bool
+    var important: Bool
+}
+
 // 내용 확장해서 UserDefault 적용해 보기
 class ShoppingTableViewController: UITableViewController {
   
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
-    
-    var shoppingList = ["그립톡 구매하기", "사이다 구매", "아이패드 케이스 최저가 알아보기", "양말"] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
 
+    
+    var shoppingList: [Shopping] = [Shopping(todo: "그립톡 구매하기", check: false, important: false),
+                                    Shopping(todo: "사이다 구매", check: false, important: false),
+                                    Shopping(todo: "아이패드 케이스 최저가 알아보기", check: false, important: false),
+                                    Shopping(todo: "양말", check: false, important: false)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchViewDesign()
     }
     
     @IBAction func searhButtonClicked(_ sender: UIButton) {
         if let search = searchTextField.text {
-            shoppingList.append(search)
             
-            // tableView.reloadData()
+            shoppingList.append(Shopping(todo: search, check: false, important: false))
+            
+            tableView.reloadData()
         }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,15 +48,25 @@ class ShoppingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell
         
-        cell.checkButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        let checkImage = !shoppingList[indexPath.row].check ? "checkmark.square" : "checkmark.square.fill"
+        
+        cell.checkButton.setImage(UIImage(systemName: checkImage), for: .normal)
         cell.checkButton.setTitle("", for: .normal)
         cell.checkButton.tintColor = .black
         
-        cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+        cell.checkButton.tag = indexPath.row
+        cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
+        
+        let importantImage = !shoppingList[indexPath.row].important ? "star" : "star.fill"
+        
+        cell.starButton.setImage(UIImage(systemName: importantImage), for: .normal)
         cell.starButton.setTitle("", for: .normal)
         cell.starButton.tintColor = .black
         
-        cell.objectLabel.text = shoppingList[indexPath.row]
+        cell.starButton.tag = indexPath.row
+        cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
+        
+        cell.objectLabel.text = shoppingList[indexPath.row].todo
         cell.objectLabel.font = .systemFont(ofSize: 14)
         
         cell.cellView.backgroundColor = .tertiarySystemFill
@@ -60,8 +76,30 @@ class ShoppingTableViewController: UITableViewController {
         return cell
     }
     
+    @objc func checkButtonClicked(sender: UIButton) {
+        shoppingList[sender.tag].check.toggle()
+        
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+    }
+    
+    @objc func starButtonClicked(sender: UIButton) {
+        shoppingList[sender.tag].important.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            shoppingList.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
     
     func searchViewDesign() {
