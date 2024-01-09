@@ -12,6 +12,8 @@
 		2B886C7C2B4BEF0A0050C7FC /* SeSACTravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B886C7B2B4BEF0A0050C7FC /* SeSACTravelTableViewCell.swift */; };
 		2B886C7E2B4BEF260050C7FC /* SeSACTravelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B886C7D2B4BEF260050C7FC /* SeSACTravelTableViewController.swift */; };
 		2B886C812B4BF0A40050C7FC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2B886C802B4BF0A40050C7FC /* Kingfisher */; };
+		2BC3BF202B4D334A00E2E134 /* CityVersion1CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC3BF1F2B4D334A00E2E134 /* CityVersion1CollectionViewController.swift */; };
+		2BC3BF222B4D360200E2E134 /* CityVersion1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC3BF212B4D360200E2E134 /* CityVersion1CollectionViewCell.swift */; };
 		2BE593932B4809300007A7E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593922B4809300007A7E2 /* AppDelegate.swift */; };
 		2BE593952B4809300007A7E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593942B4809300007A7E2 /* SceneDelegate.swift */; };
 		2BE593972B4809300007A7E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE593962B4809300007A7E2 /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 		2B534F7C2B4940110097A6A8 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
 		2B886C7B2B4BEF0A0050C7FC /* SeSACTravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTravelTableViewCell.swift; sourceTree = "<group>"; };
 		2B886C7D2B4BEF260050C7FC /* SeSACTravelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACTravelTableViewController.swift; sourceTree = "<group>"; };
+		2BC3BF1F2B4D334A00E2E134 /* CityVersion1CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVersion1CollectionViewController.swift; sourceTree = "<group>"; };
+		2BC3BF212B4D360200E2E134 /* CityVersion1CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVersion1CollectionViewCell.swift; sourceTree = "<group>"; };
 		2BE5938F2B4809300007A7E2 /* TableViewPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE593922B4809300007A7E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BE593942B4809300007A7E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BC3BF1E2B4D32B800E2E134 /* CityVersion1 */ = {
+			isa = PBXGroup;
+			children = (
+				2BC3BF1F2B4D334A00E2E134 /* CityVersion1CollectionViewController.swift */,
+				2BC3BF212B4D360200E2E134 /* CityVersion1CollectionViewCell.swift */,
+			);
+			path = CityVersion1;
+			sourceTree = "<group>";
+		};
 		2BE593862B4809300007A7E2 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 				2BE5939B2B4809310007A7E2 /* Assets.xcassets */,
 				2BE5939D2B4809310007A7E2 /* LaunchScreen.storyboard */,
 				2BE593A02B4809310007A7E2 /* Info.plist */,
+				2BC3BF1E2B4D32B800E2E134 /* CityVersion1 */,
 			);
 			path = TableViewPractice;
 			sourceTree = "<group>";
@@ -169,6 +183,7 @@
 			files = (
 				2BE593AF2B481B1B0007A7E2 /* ShoppingTableViewCell.swift in Sources */,
 				2BE593B12B481B2B0007A7E2 /* ShoppingTableViewController.swift in Sources */,
+				2BC3BF222B4D360200E2E134 /* CityVersion1CollectionViewCell.swift in Sources */,
 				2B886C7C2B4BEF0A0050C7FC /* SeSACTravelTableViewCell.swift in Sources */,
 				2B534F7B2B4940060097A6A8 /* ChattingTableViewController.swift in Sources */,
 				2B534F7D2B4940110097A6A8 /* ChattingTableViewCell.swift in Sources */,
@@ -176,6 +191,7 @@
 				2BE593972B4809300007A7E2 /* ViewController.swift in Sources */,
 				2BE593932B4809300007A7E2 /* AppDelegate.swift in Sources */,
 				2BE593952B4809300007A7E2 /* SceneDelegate.swift in Sources */,
+				2BC3BF202B4D334A00E2E134 /* CityVersion1CollectionViewController.swift in Sources */,
 				2B886C7E2B4BEF260050C7FC /* SeSACTravelTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
