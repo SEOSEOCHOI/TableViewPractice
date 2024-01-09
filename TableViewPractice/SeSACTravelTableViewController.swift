@@ -37,10 +37,11 @@ struct MagazineInfo {
     ]
 }
 
-var magazineList: [Magazine] = MagazineInfo().magazine
 
 
 class SeSACTravelTableViewController: UITableViewController {
+    
+    var magazineList: [Magazine] = MagazineInfo().magazine
 
     override func viewDidLoad() {
 
