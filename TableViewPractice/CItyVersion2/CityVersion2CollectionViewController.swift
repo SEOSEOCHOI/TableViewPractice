@@ -34,16 +34,13 @@ class CityVersion2CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityVersion2CollectionViewCell", for: indexPath) as! CityVersion2CollectionViewCell
         
-        let city = cityList[indexPath.item]
+        let item = cityList[indexPath.item]
         
-        let url = URL(string: city.city_image)
+        let url = URL(string: item.city_image)
+        
+        cell.configureCell(data: item)
         cell.cityImageView.kf.setImage(with: url)
-        
-        cell.cityNameLabel.text = ("\(city.city_name) | ")
-        
-        cell.cityEnglishName.text = ("\(city.city_english_name)")
-        
-        cell.cityExplainLabel.text = ("\(city.city_explain)")
+
         
         return cell
     }

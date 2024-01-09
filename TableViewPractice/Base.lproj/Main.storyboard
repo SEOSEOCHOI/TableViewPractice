@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -296,7 +297,72 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLQ-iV-8bO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="773"/>
+            <point key="canvasLocation" x="2153" y="737"/>
+        </scene>
+        <!--인기 도시-->
+        <scene sceneID="MvP-oQ-j6Y">
+            <objects>
+                <viewController id="yMV-t7-R3W" customClass="CityViewController" customModule="TableViewPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gju-vL-ya1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="53j-eW-Gn4">
+                                <rect key="frame" x="20" y="113" width="353" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rKB-GF-Rox"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="citySegmentClicked:" destination="yMV-t7-R3W" eventType="valueChanged" id="LG3-DO-v4Z"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b7f-gm-c9t">
+                                <rect key="frame" x="0.0" y="143" width="393" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R49-Yt-LGV">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MTv-Id-U41">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xq5-6S-6H8">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ns8-di-LcF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ns8-di-LcF" firstAttribute="trailing" secondItem="b7f-gm-c9t" secondAttribute="trailing" id="Fsh-I0-Kv9"/>
+                            <constraint firstItem="Ns8-di-LcF" firstAttribute="trailing" secondItem="53j-eW-Gn4" secondAttribute="trailing" constant="20" id="Lu0-43-gm3"/>
+                            <constraint firstItem="53j-eW-Gn4" firstAttribute="leading" secondItem="Ns8-di-LcF" secondAttribute="leading" constant="20" id="Yrc-Kb-lhr"/>
+                            <constraint firstItem="b7f-gm-c9t" firstAttribute="leading" secondItem="Ns8-di-LcF" secondAttribute="leading" id="jp8-Wn-NO7"/>
+                            <constraint firstItem="53j-eW-Gn4" firstAttribute="top" secondItem="Ns8-di-LcF" secondAttribute="top" constant="10" id="ny0-NV-3qN"/>
+                            <constraint firstItem="Ns8-di-LcF" firstAttribute="bottom" secondItem="b7f-gm-c9t" secondAttribute="bottom" id="wbS-8L-XnL"/>
+                            <constraint firstItem="b7f-gm-c9t" firstAttribute="top" secondItem="53j-eW-Gn4" secondAttribute="bottom" id="ya7-Br-fPU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="인기 도시" id="opH-cI-7pD"/>
+                    <connections>
+                        <outlet property="cityCollectionView" destination="b7f-gm-c9t" id="8TL-F3-DJd"/>
+                        <outlet property="citySegment" destination="53j-eW-Gn4" id="kDC-3h-I28"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKf-Fb-Aiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2153" y="1427"/>
         </scene>
         <!--설정-->
         <scene sceneID="XgY-VV-1Pt">
@@ -766,6 +832,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="te8-zz-MCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1285" y="738"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1mj-Py-nRr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wRh-VF-zLG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gft-qu-7tc">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yMV-t7-R3W" kind="relationship" relationship="rootViewController" id="Z2Z-ab-4yr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwe-a7-CiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285" y="1427"/>
         </scene>
     </scenes>
     <resources>

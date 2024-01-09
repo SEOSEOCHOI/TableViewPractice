@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CityVersion2CollectionViewCell" customModule="TableViewPractice" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityVersion2CollectionViewCell" id="gTV-IL-0wX" customClass="CityVersion2CollectionViewCell" customModule="TableViewPractice" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="152" height="155"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -34,7 +34,7 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-33-mHu">
-                        <rect key="frame" x="26.666666666666664" y="129" width="98.666666666666686" height="20.333333333333343"/>
+                        <rect key="frame" x="26.666666666666664" y="129" width="98.666666666666686" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -50,6 +50,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="zfM-33-mHu" firstAttribute="top" secondItem="uQZ-WX-DG9" secondAttribute="bottom" constant="1" id="0d2-U2-Gjs"/>
+                <constraint firstAttribute="bottom" secondItem="zfM-33-mHu" secondAttribute="bottom" constant="1" id="4Pd-il-NND"/>
                 <constraint firstItem="A32-6a-pyj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="799-Xd-fKb"/>
                 <constraint firstItem="uQZ-WX-DG9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="BIe-fA-Wwg"/>
                 <constraint firstItem="uQZ-WX-DG9" firstAttribute="top" secondItem="A32-6a-pyj" secondAttribute="bottom" constant="5" id="MrK-J8-bcB"/>
