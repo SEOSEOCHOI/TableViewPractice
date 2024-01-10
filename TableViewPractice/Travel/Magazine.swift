@@ -1,12 +1,5 @@
-//
-//  SeSACTravelTableViewController.swift
-//  TableViewPractice
-//
-//  Created by 최서경 on 1/8/24.
-//
 
-import UIKit
-import Kingfisher
+import Foundation
 
 struct Magazine {
     let title: String
@@ -35,57 +28,4 @@ struct MagazineInfo {
         Magazine(title: "여행 고수가 알려주는 \n새벽 비행기 이용 꿀팁", subtitle: "이제 공항에서 시간 때울 걱정 끝!", photo_image: "https://i.namu.wiki/i/6hscyOX5gNdRdcN5IdtHA7VkQHdFnvszFrGY0MrVv6Iljb2sRTKxne86s9h01lMGgIC10wOqlDHmDX09mL615-xJV0tOhNV9V_SdVVXaY47CM9aaqwS63NiUwnDSFX_DZPmeWCCHoxucWPbAPZnaSA.webp", date: "240105", link: "https://triple.guide/content/articles/791578f3-95d7-4300-a51f-6dff48db5d55"),
 
     ]
-}
-
-
-
-class SeSACTravelTableViewController: UITableViewController {
-    
-    var magazineList: [Magazine] = MagazineInfo().magazine
-
-    override func viewDidLoad() {
-
-        super.viewDidLoad()
-
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return magazineList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SeSACTravelTableViewCell", for: indexPath) as! SeSACTravelTableViewCell
-        let url = URL(string: magazineList[indexPath.row].photo_image)
-        
-        cell.photoImage.kf.setImage(with: url)
-        cell.photoImage.contentMode = .scaleAspectFill
-        cell.photoImage.layer.cornerRadius = 10
-
-        cell.titleLabel.text = magazineList[indexPath.row].title
-        cell.titleLabel.font = .boldSystemFont(ofSize: 20)
-        cell.titleLabel.numberOfLines = 2
-        cell.titleLabel.lineBreakMode = .byWordWrapping
-        
-        cell.subtitleLabel.text = magazineList[indexPath.row].subtitle
-        cell.subtitleLabel.textColor = .gray
-        cell.subtitleLabel.font = .systemFont(ofSize: 14)
-         
-        //MARK: Date
-        let format = DateFormatter()
-        format.dateFormat = "yyMMdd"
-        if let date = format.date(from: magazineList[indexPath.row].date) {
-            format.dateFormat = "yy년 MM월 dd일"
-            let resultDate = format.string(from: date)
-            cell.dateLabel.text = resultDate
-        }
-        cell.dateLabel.textColor = .gray
-        cell.dateLabel.font = .systemFont(ofSize: 14)
-
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 480
-    }
 }

@@ -1,19 +1,20 @@
 import UIKit
 
-class CityVersion2CollectionViewCell: UICollectionViewCell {
+protocol cellDesignProtocol {
+    func configureCell(data: Any)
+}
 
+
+class CityVersion2CollectionViewCell: UICollectionViewCell {
     @IBOutlet var cityImageView: UIImageView!
     @IBOutlet var cityNameLabel: UILabel!
     @IBOutlet var cityEnglishName: UILabel!
     @IBOutlet var cityExplainLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         cityImageView.contentMode = .scaleAspectFill
-        cityImageView.layer.cornerRadius = 60
         
         cityEnglishName.font = .boldSystemFont(ofSize: 15)
         cityNameLabel.font = .boldSystemFont(ofSize: 15)
@@ -23,15 +24,21 @@ class CityVersion2CollectionViewCell: UICollectionViewCell {
         cityExplainLabel.numberOfLines = 0
         cityExplainLabel.textAlignment = .center
         
+        // contentView.backgroundColor = .blue
     }
-    
-    func configureCell (data: City) { // 식판
-        
-        cityNameLabel.text = ("\(data.city_name) | ")
-        
-        cityEnglishName.text = ("\(data.city_english_name)")
-        
-        cityExplainLabel.text = ("\(data.city_explain)")
+    override func draw(_ rect: CGRect) {
+        cityImageView.layer.cornerRadius =  cityImageView.frame.width / 2
+        cityImageView.clipsToBounds = true
     }
+}
 
+extension CityVersion2CollectionViewCell: cellDesignProtocol {
+    func configureCell(data: Any) {
+        cityNameLabel.text = ("\((data as! City).city_name) | ")
+        
+        cityEnglishName.text = ("\((data as! City).city_english_name)")
+        
+        cityExplainLabel.text = ("\((data as! City).city_explain)")
+        
+    }
 }

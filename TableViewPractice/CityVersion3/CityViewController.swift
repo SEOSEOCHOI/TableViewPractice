@@ -1,7 +1,11 @@
 import UIKit
 import Kingfisher
 
+protocol layoutProtocol {
+    func setLayout()
+}
 
+// emum을 optional initializer로 만들어 보기
 enum CitySegment: Int, CaseIterable {
     case 모두 = 0
     case 국내 = 1
@@ -9,15 +13,67 @@ enum CitySegment: Int, CaseIterable {
 }
 
 
-class CityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CityViewController: UIViewController {
     
-    let cityList: [City] = CityInfo().city
-
+    var cityList: [City] = []
+    
+    let allCityList: [City] = CityInfo().city
+    
     @IBOutlet var cityCollectionView: UICollectionView!
     
     @IBOutlet var citySegment: UISegmentedControl!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let xib = UINib(nibName: "CityVersion2CollectionViewCell", bundle: nil)
+        cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityVersion2CollectionViewCell")
+        // CollectionView 와 부하들 연결
+        cityCollectionView.dataSource = self
+        cityCollectionView.delegate = self
+        setLayout()
+
+        cityList = allCityList
+        
+        let segmentValue = CitySegment.allCases
+        for segment in segmentValue {
+            citySegmentDesign(title: ("\(segment)"), at: segment.rawValue)
+            //print(segment, segment.rawValue)
+        }
+    }
     
+    @IBAction func citySegmentClicked(_ sender: UISegmentedControl) {
+        cityList = []
+        if sender.selectedSegmentIndex == 0 {
+            cityList = allCityList
+        } else if sender.selectedSegmentIndex == 1 {
+            for city in allCityList {
+                if city.domestic_travel == true {
+                    cityList.append(city)
+                }
+            }
+        } else {
+            print("헤외 클릭")
+            for city in allCityList {
+                if city.domestic_travel != true {
+                    cityList.append(city)
+                }
+            }
+        }
+        cityCollectionView.reloadData()
+    }
+
+    func citySegmentDesign(title: String, at: Int) {
+        // segmented control을 다룰 줄 몰라서 inspector 영역에서 갯수 지정해 주었습니다 🥺
+        citySegment.setTitle(title, forSegmentAt: at)
+    }
+}
+
+extension CityViewController: UICollectionViewDelegate {
+    
+}
+
+extension CityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cityList.count
     }
@@ -30,69 +86,22 @@ class CityViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let url = URL(string: item.city_image)
         cell.cityImageView.kf.setImage(with: url)
         cell.configureCell(data: item)
-         
-        /*
-         if item.domestic_travel == true {
-             cell.cityImageView.kf.setImage(with: url)
-             cell.configureCell(data: item)
-         } else {
-             cell.isHidden = true
-         }
-         */
-
+        
         return cell
-        
     }
-    
-    @IBAction func citySegmentClicked(_ sender: UISegmentedControl) {
-        
-        if sender.selectedSegmentIndex == 0 {
-            print("모두 클릭")
+}
 
-        } else if sender.selectedSegmentIndex == 1 {
-            print("국내 클릭")
-        } else {
-            print("헤외 클릭")
-        }
-        
-        cityCollectionView.reloadData()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let xib = UINib(nibName: "CityVersion2CollectionViewCell", bundle: nil)
-        cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityVersion2CollectionViewCell")
-        // CollectionView 와 부하들 연결
-        cityCollectionView.dataSource = self
-        cityCollectionView.delegate = self
-        
+extension CityViewController: layoutProtocol {
+    func setLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 10
-        let cellWidth = UIScreen.main.bounds.width - (spacing * 3)
-        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2)
+        let cellWidth = (UIScreen.main.bounds.width - (spacing * 3)) / 2
+        layout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.3)
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
         
         cityCollectionView.collectionViewLayout = layout
-        
-        let segmentValue = CitySegment.allCases
-
-        for segment in segmentValue {
-            citySegmentDesign(title: ("\(segment)"), at: segment.rawValue)
-            //print(segment, segment.rawValue)
-        }
-
-
-    }
-
-    
-    func citySegmentDesign(title: String, at: Int) {
-        // segmented control을 다룰 줄 몰라서 inspector 영역에서 갯수 지정해 주었습니다 🥺
-        citySegment.setTitle(title, forSegmentAt: at)
-
-        
     }
 }
