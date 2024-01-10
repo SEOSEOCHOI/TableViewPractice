@@ -1,24 +1,11 @@
-//
-//  ShoppingTableViewController.swift
-//  TableViewPractice
-//
-//  Created by 최서경 on 1/5/24.
-//
-
 import UIKit
-
-struct Shopping {
-    let todo: String
-    var check: Bool
-    var important: Bool
-}
 
 // 내용 확장해서 UserDefault 적용해 보기
 class ShoppingTableViewController: UITableViewController {
-  
+    
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
-
+    
     
     var shoppingList: [Shopping] = [Shopping(todo: "그립톡 구매하기", check: false, important: false),
                                     Shopping(todo: "사이다 구매", check: false, important: false),
@@ -48,30 +35,16 @@ class ShoppingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell
         
-        let checkImage = !shoppingList[indexPath.row].check ? "checkmark.square" : "checkmark.square.fill"
+        let indexRow = indexPath.row
+        let shoppingCell = shoppingList[indexRow]
         
-        cell.checkButton.setImage(UIImage(systemName: checkImage), for: .normal)
-        cell.checkButton.setTitle("", for: .normal)
-        cell.checkButton.tintColor = .black
-        
+        cell.configureCell(data: shoppingCell)
+
         cell.checkButton.tag = indexPath.row
         cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
         
-        let importantImage = !shoppingList[indexPath.row].important ? "star" : "star.fill"
-        
-        cell.starButton.setImage(UIImage(systemName: importantImage), for: .normal)
-        cell.starButton.setTitle("", for: .normal)
-        cell.starButton.tintColor = .black
-        
         cell.starButton.tag = indexPath.row
         cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
-        
-        cell.objectLabel.text = shoppingList[indexPath.row].todo
-        cell.objectLabel.font = .systemFont(ofSize: 14)
-        
-        cell.cellView.backgroundColor = .tertiarySystemFill
-        cell.cellView.layer.cornerRadius = 5
-
         
         return cell
     }
@@ -107,7 +80,7 @@ class ShoppingTableViewController: UITableViewController {
         searchTextField.clipsToBounds = true
         searchTextField.layer.cornerRadius = 5
         searchTextField.borderStyle = .none
-
+        
         searchTextField.backgroundColor = . tertiarySystemFill
         
         searchButton.setTitle("추가", for: .normal)
