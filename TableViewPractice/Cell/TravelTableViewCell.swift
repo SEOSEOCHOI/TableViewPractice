@@ -48,7 +48,7 @@ extension TravelTableViewCell: cellDesignProtocol {
     func configureCell(data: Any) {
         titleLabel.text = (data as! Travel).title
         infoLabel.text = (data as! Travel).description
-        let saveNumber = saveLabel.setDecimalNumber(requestIntValue: Int.random(in: 0...5000))
+        let saveNumber = setDecimalNumber(requestIntValue: Int.random(in: 0...5000))
         reviewLabel.text = "(\(saveNumber))・"
         
         if let heart = (data as! Travel).like {
@@ -57,7 +57,7 @@ extension TravelTableViewCell: cellDesignProtocol {
         }
         
         if let save = (data as! Travel).save {
-            let saveNumber = saveLabel.setDecimalNumber(requestIntValue: save)
+            let saveNumber = setDecimalNumber(requestIntValue: save)
             saveLabel.text = "저장 \(saveNumber)"
         }
         
@@ -81,5 +81,14 @@ extension TravelTableViewCell {
         for starCount in 0...grade - 1 {
             starImageView[starCount].tintColor = .yellow
         }
+    }
+    
+    func setDecimalNumber(requestIntValue: Int) -> String {
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        let result: String = numberFormatter.string(for: requestIntValue)!
+        
+        return result
     }
 }
