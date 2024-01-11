@@ -12,7 +12,6 @@ enum CitySegment: Int, CaseIterable {
     case 헤외 = 2
 }
 
-
 class CityViewController: UIViewController {
     
     var cityList: [City] = []
@@ -26,20 +25,8 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let xib = UINib(nibName: "CityVersion2CollectionViewCell", bundle: nil)
-        cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityVersion2CollectionViewCell")
-        // CollectionView 와 부하들 연결
-        cityCollectionView.dataSource = self
-        cityCollectionView.delegate = self
-        setLayout()
+        configureCollectionView()
 
-        cityList = allCityList
-        
-        let segmentValue = CitySegment.allCases
-        for segment in segmentValue {
-            citySegmentDesign(title: ("\(segment)"), at: segment.rawValue)
-            //print(segment, segment.rawValue)
-        }
     }
     
     @IBAction func citySegmentClicked(_ sender: UISegmentedControl) {
@@ -69,11 +56,7 @@ class CityViewController: UIViewController {
     }
 }
 
-extension CityViewController: UICollectionViewDelegate {
-    
-}
-
-extension CityViewController: UICollectionViewDataSource {
+extension CityViewController: UICollectionViewDelegate ,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cityList.count
     }
@@ -103,5 +86,34 @@ extension CityViewController: layoutProtocol {
         layout.scrollDirection = .vertical
         
         cityCollectionView.collectionViewLayout = layout
+    }
+}
+
+// UI
+extension CityViewController {
+    func configureCollectionView() {
+        let xib = UINib(nibName: "CityVersion2CollectionViewCell", bundle: nil)
+        cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityVersion2CollectionViewCell")
+        // CollectionView 와 부하들 연결
+        cityCollectionView.dataSource = self
+        cityCollectionView.delegate = self
+        setLayout()
+
+        cityList = allCityList
+        
+        let segmentValue = CitySegment.allCases
+        for segment in segmentValue {
+            citySegmentDesign(title: ("\(segment)"), at: segment.rawValue)
+            //print(segment, segment.rawValue)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Travel", bundle: nil)
+        let travelViewController = sb.instantiateViewController(withIdentifier: "TravelViewController") as! TravelViewController
+        
+//        let travelNavigation = UINavigationController(rootViewController: travelViewController)
+        
+        navigationController?.pushViewController(travelViewController, animated: true)
     }
 }

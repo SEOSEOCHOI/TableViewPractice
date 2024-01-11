@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelTableViewCell" rowHeight="148" id="KGk-i7-Jjw" customClass="TravelTableViewCell" customModule="TableViewPractice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="철도 박물관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk0-Ym-58d">
+                        <rect key="frame" x="20" y="9.9999999999999982" width="78" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gls-Iv-Dst">
+                        <rect key="frame" x="19.999999999999986" y="33.333333333333336" width="248.66666666666663" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(리뷰수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-2U-JZ0">
+                        <rect key="frame" x="132.66666666666666" y="57.666666666666664" width="56.333333333333343" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W0p-WS-JOB">
+                        <rect key="frame" x="20.000000000000007" y="57.666666666666664" width="107.66666666666669" height="20.333333333333336"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8Mm-Hq-lFv">
+                                <rect key="frame" x="0.0" y="-0.33333333333333215" width="22" height="19.999999999999996"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HGc-T4-eFz">
+                                <rect key="frame" x="22" y="-0.33333333333333215" width="22" height="19.999999999999996"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-jH-4qD">
+                                <rect key="frame" x="44" y="-0.33333333333333215" width="22" height="19.999999999999996"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8kl-FC-Jx5">
+                                <rect key="frame" x="66" y="-0.33333333333333215" width="22" height="19.999999999999996"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J4k-Ra-udN">
+                                <rect key="frame" x="88" y="0.99999999999999822" width="19.666666666666671" height="19"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저장 213131" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db3-EQ-ZHJ">
+                        <rect key="frame" x="191" y="57.666666666666664" width="86.666666666666686" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daP-GJ-0sb">
+                        <rect key="frame" x="367" y="15" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="daP-GJ-0sb" secondAttribute="height" id="CfU-jj-tNi"/>
+                            <constraint firstAttribute="width" constant="30" id="nCb-ed-BvS"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aN8-Tf-jCV">
+                        <rect key="frame" x="298.66666666666669" y="9.9999999999999929" width="103.33333333333331" height="124.33333333333331"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="aN8-Tf-jCV" secondAttribute="height" multiplier="100:120" id="xUp-th-awp"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="daP-GJ-0sb" firstAttribute="trailing" secondItem="aN8-Tf-jCV" secondAttribute="trailing" constant="-5" id="0XY-wJ-Snj"/>
+                    <constraint firstItem="kk0-Ym-58d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9kb-bp-TnQ"/>
+                    <constraint firstItem="db3-EQ-ZHJ" firstAttribute="top" secondItem="uNl-2U-JZ0" secondAttribute="top" id="A23-xz-HTy"/>
+                    <constraint firstItem="W0p-WS-JOB" firstAttribute="top" secondItem="gls-Iv-Dst" secondAttribute="bottom" constant="4" id="BZ9-h3-Z98"/>
+                    <constraint firstItem="db3-EQ-ZHJ" firstAttribute="leading" secondItem="uNl-2U-JZ0" secondAttribute="trailing" constant="2" id="F3d-os-Wni"/>
+                    <constraint firstItem="aN8-Tf-jCV" firstAttribute="top" secondItem="daP-GJ-0sb" secondAttribute="top" constant="-5" id="LSR-fe-WXb"/>
+                    <constraint firstAttribute="bottom" secondItem="aN8-Tf-jCV" secondAttribute="bottom" constant="10" id="VgZ-Nc-5rz"/>
+                    <constraint firstItem="uNl-2U-JZ0" firstAttribute="centerY" secondItem="W0p-WS-JOB" secondAttribute="centerY" id="XiH-Pg-BCN"/>
+                    <constraint firstItem="gls-Iv-Dst" firstAttribute="top" secondItem="kk0-Ym-58d" secondAttribute="bottom" constant="3" id="ZRW-GW-tJ2"/>
+                    <constraint firstItem="kk0-Ym-58d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="bjw-DV-H0y"/>
+                    <constraint firstItem="aN8-Tf-jCV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="goX-LY-JSF"/>
+                    <constraint firstItem="aN8-Tf-jCV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mC4-K1-7bv"/>
+                    <constraint firstAttribute="trailing" secondItem="aN8-Tf-jCV" secondAttribute="trailing" constant="12" id="mL5-hF-m7P"/>
+                    <constraint firstItem="aN8-Tf-jCV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="nfv-lB-gR8"/>
+                    <constraint firstItem="W0p-WS-JOB" firstAttribute="leading" secondItem="gls-Iv-Dst" secondAttribute="leading" id="pVx-yE-ePb"/>
+                    <constraint firstItem="uNl-2U-JZ0" firstAttribute="leading" secondItem="W0p-WS-JOB" secondAttribute="trailing" constant="5" id="qPd-vU-NUD"/>
+                    <constraint firstItem="aN8-Tf-jCV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gls-Iv-Dst" secondAttribute="trailing" constant="30" id="teX-Xq-xa0"/>
+                    <constraint firstItem="gls-Iv-Dst" firstAttribute="leading" secondItem="kk0-Ym-58d" secondAttribute="leading" id="vSM-WZ-y7y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="infoLabel" destination="gls-Iv-Dst" id="cMz-ul-PpB"/>
+                <outlet property="likeButton" destination="daP-GJ-0sb" id="3fL-Qy-x4t"/>
+                <outlet property="reviewLabel" destination="uNl-2U-JZ0" id="5M5-wv-Dgs"/>
+                <outlet property="saveLabel" destination="db3-EQ-ZHJ" id="bEE-Cz-oOQ"/>
+                <outlet property="titleLabel" destination="kk0-Ym-58d" id="G9B-XV-Aw3"/>
+                <outlet property="travelImageView" destination="aN8-Tf-jCV" id="ayY-5R-cYr"/>
+                <outletCollection property="starImageView" destination="8Mm-Hq-lFv" collectionClass="NSMutableArray" id="C6x-H1-ISz"/>
+                <outletCollection property="starImageView" destination="HGc-T4-eFz" collectionClass="NSMutableArray" id="BXW-3i-6fp"/>
+                <outletCollection property="starImageView" destination="GOA-jH-4qD" collectionClass="NSMutableArray" id="o9D-HW-qsj"/>
+                <outletCollection property="starImageView" destination="8kl-FC-Jx5" collectionClass="NSMutableArray" id="fdw-wk-BbP"/>
+                <outletCollection property="starImageView" destination="J4k-Ra-udN" collectionClass="NSMutableArray" id="dqI-T8-9TI"/>
+            </connections>
+            <point key="canvasLocation" x="283.96946564885496" y="57.04225352112676"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart.circle" catalog="system" width="128" height="123"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>

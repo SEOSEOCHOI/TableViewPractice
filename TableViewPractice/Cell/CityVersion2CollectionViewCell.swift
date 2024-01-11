@@ -34,11 +34,11 @@ class CityVersion2CollectionViewCell: UICollectionViewCell {
 
 extension CityVersion2CollectionViewCell: cellDesignProtocol {
     func configureCell(data: Any) {
-        cityNameLabel.text = ("\((data as! City).city_name) | ")
+        cityNameLabel.text = "\((data as! City).city_name) | "
         
-        cityEnglishName.text = ("\((data as! City).city_english_name)")
+        cityEnglishName.text = "\((data as! City).city_english_name)"
         
-        cityExplainLabel.text = ("\((data as! City).city_explain)")
+        cityExplainLabel.text = "\((data as! City).city_explain)"
         
     }
 }
