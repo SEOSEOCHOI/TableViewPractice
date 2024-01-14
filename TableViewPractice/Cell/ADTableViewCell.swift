@@ -20,7 +20,7 @@ class ADTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backView.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+
         backView.layer.cornerRadius = 10
         
         titleLabel.numberOfLines = 0
@@ -38,6 +38,8 @@ class ADTableViewCell: UITableViewCell {
 
 extension ADTableViewCell: cellDesignProtocol {
     func configureCell(data: Any) {
+        
+        backView.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
 
         titleLabel.text = (data as! Travel).title
     }

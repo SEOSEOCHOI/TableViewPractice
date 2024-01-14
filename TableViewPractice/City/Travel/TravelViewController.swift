@@ -23,11 +23,6 @@ class TravelViewController: UIViewController {
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-
-    }
-    
 }
 // UI
 extension TravelViewController {
@@ -67,6 +62,10 @@ extension TravelViewController {
         }
 
         tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+
     }
 }
 
