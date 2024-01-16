@@ -9,53 +9,70 @@ protocol layoutProtocol {
 enum CitySegment: Int, CaseIterable {
     case 모두 = 0
     case 국내 = 1
-    case 헤외 = 2
+    case 해외 = 2
 }
 
 class CityViewController: UIViewController {
     
-    var cityList: [City] = []
+    var cityList: [City] = [] {
+        didSet {
+            cityCollectionView.reloadData()
+        }
+    }
     
-    let allCityList: [City] = CityInfo().city
+    var segmentedCityList: [City] = []
+    
+    let allCityList = CityInfo().city
     
     @IBOutlet var cityCollectionView: UICollectionView!
     
     @IBOutlet var citySegment: UISegmentedControl!
     
+    @IBOutlet var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionView()
-
+        
     }
     
     @IBAction func citySegmentClicked(_ sender: UISegmentedControl) {
+        segmentedCityList = []
         cityList = []
         if sender.selectedSegmentIndex == 0 {
-            cityList = allCityList
+//            segmentedCityList = allCityList
+//            cityList = segmentedCityList
+            
+            for city in allCityList {
+                    segmentedCityList.append(city)
+                    cityList = segmentedCityList
+            }
+            
         } else if sender.selectedSegmentIndex == 1 {
             for city in allCityList {
                 if city.domestic_travel == true {
-                    cityList.append(city)
+                    segmentedCityList.append(city)
+                    cityList = segmentedCityList
                 }
             }
         } else {
-            print("헤외 클릭")
             for city in allCityList {
                 if city.domestic_travel != true {
-                    cityList.append(city)
+                    segmentedCityList.append(city)
+                    cityList = segmentedCityList
+                    //cityList.append(city)
                 }
             }
         }
-        cityCollectionView.reloadData()
     }
-
+    
     func citySegmentDesign(title: String, at: Int) {
         // segmented control을 다룰 줄 몰라서 inspector 영역에서 갯수 지정해 주었습니다 🥺
         citySegment.setTitle(title, forSegmentAt: at)
     }
 }
 
+// MARK: CollectionView
 extension CityViewController: UICollectionViewDelegate ,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cityList.count
@@ -69,6 +86,7 @@ extension CityViewController: UICollectionViewDelegate ,UICollectionViewDataSour
         let url = URL(string: item.city_image)
         cell.cityImageView.kf.setImage(with: url)
         cell.configureCell(data: item)
+        
         
         return cell
     }
@@ -89,7 +107,7 @@ extension CityViewController: layoutProtocol {
     }
 }
 
-// UI
+// MARK: UI
 extension CityViewController {
     func configureCollectionView() {
         let xib = UINib(nibName: "CityVersion2CollectionViewCell", bundle: nil)
@@ -98,7 +116,7 @@ extension CityViewController {
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
         setLayout()
-
+        
         cityList = allCityList
         
         let segmentValue = CitySegment.allCases
@@ -112,8 +130,50 @@ extension CityViewController {
         let sb = UIStoryboard(name: "Travel", bundle: nil)
         let travelViewController = sb.instantiateViewController(withIdentifier: "TravelViewController") as! TravelViewController
         
-//        let travelNavigation = UINavigationController(rootViewController: travelViewController)
-        
         navigationController?.pushViewController(travelViewController, animated: true)
     }
 }
+
+//MARK: SearchBar
+extension CityViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var filterData: [City] = []
+
+        if searchBar.text == "" {
+            cityList = segmentedCityList
+        } else {
+            for item in cityList {
+                if item.city_name.contains(searchBar.text!) ||
+                    item.city_english_name.contains(searchBar.text!) ||
+                    item.city_explain.contains(searchBar.text!) {
+                    filterData.append(item)
+                }
+            }
+            cityList = filterData
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        var filterData: [City] = []
+
+        if searchBar.text == "" {
+            cityList = segmentedCityList
+        } else {
+            for item in cityList {
+                if item.city_name.contains(searchBar.text!) ||
+                    item.city_english_name.contains(searchBar.text!) ||
+                    item.city_explain.contains(searchBar.text!) {
+                    filterData.append(item)
+                }
+            }
+            cityList = filterData
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        cityList = segmentedCityList
+    }
+}
+
